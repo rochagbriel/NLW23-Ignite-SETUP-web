@@ -30,6 +30,10 @@ export function HabitsList({ date }: HabitsListProps) {
         })
     }, [])
 
+    function handleToggleHabit(habitId: string) {
+
+    }
+
     const isDateInPast = dayjs(date)
     .endOf('day')
     .isBefore(new Date())
@@ -40,6 +44,7 @@ export function HabitsList({ date }: HabitsListProps) {
                 return (
                 <Checkbox.Root
                     key={habit.id}
+                    onCheckedChange={() => handleToggleHabit(habit.id)}
                     checked={habitsInfo.completedHabits.includes(habit.id)}
                     className='flex items-center gap-3 group'
                 >
